@@ -27,7 +27,10 @@ SECRET_KEY = 'django-insecure-k7itc4f#l$x9c0m=r&w1ud+ls+x!-&4uu0i$_)#g&-#@7+*h!_
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    '4888-41-139-168-163.ngrok-free.app',
+    '*'
+]
 
 
 # Application definition
@@ -39,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.gis',
 
     'core.apps.CoreConfig',
     'accounts.apps.AccountsConfig',
@@ -92,7 +96,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.contrib.gis.db.backends.postgis',
         'NAME': 'geo_insurance',
-        'USER': 'localhost',
+        'USER': 'postgres',
         'PASSWORD': config('DB_PASSWORD'),
         'HOST': 'localhost',
         'PORT': '5432'

@@ -19,6 +19,7 @@ class InsuranceCompany(models.Model):
     
     class Meta:
         db_table = 'insurance_company'
+        verbose_name_plural = 'insurance companies'
 
 class InsuranceHospital(models.Model):
     name = models.CharField(max_length=100)
@@ -44,7 +45,6 @@ class InsuranceHospital(models.Model):
     
 
 class InsuranceCustomer(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
     insurance_company = models.ForeignKey(InsuranceCompany, on_delete=models.CASCADE)
     uuid = models.UUIDField(default=uuid.uuid4, editable=False, unique=True)
 
@@ -53,6 +53,7 @@ class InsuranceCustomer(models.Model):
     
     class Meta:
         db_table = 'insurance_customer'
+        verbose_name_plural = 'insurance customers'
     
 
 class InsuranceClaim(models.Model):
@@ -71,6 +72,7 @@ class InsuranceClaim(models.Model):
     class Meta:
         ordering = ['-date_created']
         db_table = 'insurance_claim'
+        verbose_name_plural = 'insurance claims'
 
 class Policy(models.Model):
     name = models.CharField(max_length=100)
@@ -85,3 +87,5 @@ class Policy(models.Model):
     
     class Meta:
         db_table = 'policy'
+        verbose_name_plural = 'policies'
+

@@ -5,6 +5,7 @@ import uuid
 # Create your models here.
 
 class User(AbstractUser):
+    email = models.EmailField(max_length=100, unique=True)
     phone_number = models.CharField(max_length=20)
     is_insurance_company = models.BooleanField(default=False)
     is_hospital = models.BooleanField(default=False)
@@ -12,8 +13,6 @@ class User(AbstractUser):
     is_admin = models.BooleanField(default=False)
     verification_code = models.CharField(max_length=100, null=True, blank=True)
     is_verified = models.BooleanField(default=False)
-
-
     class Meta:
         db_table = 'user'
 
