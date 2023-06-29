@@ -59,8 +59,12 @@ def ussd_view(request):
                 response += str(insurance_company.id) + ". " + insurance_company.name + "\n"
 
         elif text == f"1*{text}":
-            response = "Here are the insurances available near you \n"
-            
+            response = "Enter Your Location \n"
+            insurance_company = InsuranceCompany.objects.get(id=text)
+            session = ussd.create_session(phone_number, service_code, session_id)
+            session['insurance_company'] = insurance_company.id
+            session.save()
+
 
 
         elif text == "2":
