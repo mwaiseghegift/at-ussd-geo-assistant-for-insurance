@@ -92,7 +92,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.contrib.gis.db.backends.postgis',
         'NAME': 'geo_insurance',
-        'USER': 'postgres',
+        'USER': 'localhost',
         'PASSWORD': config('DB_PASSWORD'),
         'HOST': 'localhost',
         'PORT': '5432'
